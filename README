@@ -1,0 +1,21 @@
+refiler is completely based on rptyr from Nelson Elhage <nelhage@nelhage.com>.
+
+refiler uses ptrace to open a new file descriptor on a process.
+
+Supose you started a process redirecting stdout to /dev/null but now you want 
+to read stdout. With refiler you can open a new file descriptor on this 
+process then call to dup2 and finally you obtain stdout (or whatever fd) 
+redirected. You can change a file descriptor "on the fly" without stopping
+that process.
+
+
+
+
+CREDITS
+-------
+refiler was written by yangosoft 
+
+reptyr was written by Nelson Elhage <nelhage@nelhage.com>. Contact him
+with any questions or bug reports. http://github.com/nelhage/reptyr
+
+
