@@ -1,0 +1,13 @@
+- Attaching to rtorrent doesn't work right (rtorrent stops accepting input)
+  (The problem is that rtorrent is using epoll to poll stdin, and we don't
+   update the internal reference that the epoll fd has to the old tty).
+
+- Attaching to a process with children doesn't work right.
+  This should be possible to fix -- I just need to ptrace each child
+  individually and do the same games to it.
+
+- After attaching to a curses application, the arrow keys may not work
+  right. This is because of terminal state that is configured by
+  sending control characters to the terminal emulator, instead of
+  through termios, and so I can't easily restore. Suspending and
+  resuming the app will often usually perform the appropriate reset.
