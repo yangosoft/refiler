@@ -154,7 +154,7 @@ int main(int argc, char **argv) {
     int pty;
     int do_attach = 1;
 
-    if (argc < 2) {
+    if (argc != 4) {
         usage(argv[0]);
         return 2;
     }
